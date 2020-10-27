@@ -1,0 +1,25 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'portfolio/detail.css' %}">
+    <title>{{ post.title }}</title>
+  </head>
+  <body>
+    <section id="main">
+      <img class="postpic" src="{{ post.image.url }}">
+      <h1 class="text-center mt-3 p4" id="blogdetailtitle">{{ post.title }}</h1>
+      <h5 class="text-center text-muted mb-4">{{ post.date|date:'F jS Y' }}</h5>
+      <p class="p3">{{ post.description|safe }}</p>
+      <hr>
+      <br>
+      <a class="link" href="{% url 'blog:all_blogs' %}">Go to CompSciHub homepage</a>
+    </section>
+  </body>
+</html>
+
+{% endblock %}

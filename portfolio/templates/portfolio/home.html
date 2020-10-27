@@ -1,0 +1,70 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'portfolio/home.css' %}">
+    <title>Vengad</title>
+  </head>
+  <body>
+
+    <header class="row justify-content-center mb-3">
+      <hgroup class="col-md-9 text-center hg">
+        <h4>Hi, my name is</h4>
+        <h1 id="hometext" class="font-weight-bold">Vengad Alagarsamy</h1>
+      </hgroup>
+    </header>
+
+    <article id="aboutme">
+      <section class="container-fluid">
+        <section class="row">
+          <section class="text-center justify-content-center align-self-center">
+            <img class="me img-fluid" src="{% static 'portfolio/me.png' %}" class="img-fluid">
+          </section>
+          <section class="col-sm justify-content-center align-self-center">
+            <p class="p1">I am a second year Computer Science student at Queen Mary University of London.
+            Below is a collection of my recent projects with the respective development languages and frameworks used listed
+            beneath them.</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><span>Date of Birth:</span> 26 November 1998</li>
+              <li class="list-group-item"><span>Email:</span> vengad98@gmail.com</li>
+              <li class="list-group-item"><span>Phone:</span> 07470132423</li>
+            </ul>
+          </section>
+        </section>
+      </section>
+    </article>
+
+    <section id="port">
+      <h2 class="h-i" id="section1">Portfolio</h2>
+      <hr class="hr1">
+      <div class="row">
+          {% for project in projects %}
+          <section class="col-lg-4 col-md-6">
+
+            {% if project.url %}
+              <a href="{{ project.url }}"><img src="{{ project.image.url }}" class="img-fluid mb-2"></a>
+            {% else %}
+              <img src="{{ project.image.url }}" class="img-fluid mb-2">
+            {% endif %}
+            <a href="{{ project.url }}"><h3 class="name">{{ project.title }}</h3></a>
+            <p class="descrip">{{ project.description }}</p>
+            <p class="backfront">{{ project.backend }}</p>
+            <p class="backfront">{{ project.frontend }}</p>
+
+          </section>
+          {% endfor %}
+    </section>
+    </div>
+
+    <script type="text/javascript" src="particles.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
+
+{% endblock %}

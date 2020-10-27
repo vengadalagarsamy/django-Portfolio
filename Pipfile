@@ -1,0 +1,36 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+appdirs = "==1.4.3"
+asgiref = "==3.2.7"
+certifi = "==2019.11.28"
+distlib = "==0.3.0"
+filelock = "==3.0.12"
+joblib = "==0.14.1"
+kiwisolver = "==1.2.0"
+matplotlib = "==3.2.1"
+numpy = "==1.18.2"
+pandas = "==1.0.3"
+pipenv = "==2018.11.26"
+pyparsing = "==2.4.7"
+python-dateutil = "==2.8.1"
+pytz = "==2019.3"
+scikit-learn = "==0.22.2.post1"
+scipy = "==1.4.1"
+seaborn = "==0.10.0"
+six = "==1.14.0"
+sklearn = "==0.0"
+sqlparse = "==0.3.1"
+virtualenv = "==20.0.14"
+virtualenv-clone = "==0.5.3"
+Cycler = "==0.10.0"
+Django = "==3.0.4"
+Pillow = "==7.1.2"
+
+[requires]
+python_version = "3.8"

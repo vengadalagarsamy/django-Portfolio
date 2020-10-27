@@ -1,0 +1,38 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>WebDevs</title>
+    <link rel="stylesheet" href="{% static 'portfolio/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/detail.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    <section id="main">
+      <img class="postpic" src="{{ post.image.url }}">
+      <h1 class="p1">{{ post.title }}</h1>
+      <h3 class="p2">{{ post.date}}</h3>
+      <p class="p3">{{ post.description|safe }}</p>
+    </section>
+  </body>
+</html>
+
+{% endblock %}
+
+
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h1 class="text-center mt-5" id="blogdetailtitle">{{ post.title }}</h1>
+
+<h5 class="text-center text-muted mb-5">{{ post.date|date:'F jS Y' }}</h5>
+
+{{ post.description|safe }}
+
+{% endblock %}

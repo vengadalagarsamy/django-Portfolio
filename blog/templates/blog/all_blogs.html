@@ -1,0 +1,41 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'portfolio/custom.css' %}">
+  <link rel="stylesheet" href="{% static 'portfolio/nav.css' %}">
+  <link rel="stylesheet" href="{% static 'portfolio/blog.css' %}">
+  <title>CompSciHub</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h1 id="blogtitle" class="font-weight-bold text-center">CompSciHub</h1>
+  <h3 class="text-center mb-3 p1">Technology blog, delving into topics including Software Engineering, Machine Learning and FinTech</h3>
+  <h3 class="text-center mb-5 p2">(There are currently <span style="font-weight:bold">{{ blogposts.count }}</span> post{{ blogposts.count|pluralize }})</h3>
+  <hr class="blog">
+  {% for post in blogposts %}
+  <div class="row justify-content-center my-3">
+    <div class="col-md-10">
+      <a href="{% url 'blog:detail' post.id %}"><h1 class="p4">{{ post.title }}</h1></a>
+      <h3 class="p5">{{ post.date|date:'M d Y' }}</h3>
+      <a href="{% url 'blog:detail' post.id %}"><img class="postpic" src="{{ post.image.url }}"></a>
+      <a href="{% url 'blog:detail' post.id %}"><p class="p6">{{ post.description|striptags|truncatechars:500 }}</p></a>
+    </div>
+  </div>
+  {% endfor %}
+</body>
+</html>
+
+{% endblock %}
